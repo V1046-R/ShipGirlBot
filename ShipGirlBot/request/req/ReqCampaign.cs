@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 public class ReqCampaign : BaseWWWRequest
 {
     private GetCampaignWarResultResponse battleResult;
+    public static bool haveGetConfig;
     private PVECampaignLevel requesttingLevel;
     private StartCampaignWarResponse warResponse;
     private SearchEnemyResponse searchNodeResponse;
@@ -44,7 +45,15 @@ public class ReqCampaign : BaseWWWRequest
 
     public void GetData()
     {
-        base.path = "campaign/getUserData";
+        //base.path = "campaign/getUserData";
+        if (haveGetConfig)
+        {
+            base.path = "campaign/getUserData";
+        }
+        else
+        {
+            base.path = "campaign/getUserData/1/";
+        }
         base.SetupParams(null, new BaseWWWRequest.OnSuccess(this.reqGetUserDataSuccess), new BaseWWWRequest.OnFail(this.reqGetUserDataFail), true, ServerType.ChoosedServer, false);
     }
 
@@ -312,6 +321,12 @@ public class ReqCampaign : BaseWWWRequest
             }
             else
             {
+                if ((response.shipCampaign != null) && (response.shipCampaignLevel != null))
+                {
+                    PVEConfigs.instance.SetCampaignChapters(response.shipCampaign);
+                    PVEConfigs.instance.SetCampaignLevels(response.shipCampaignLevel);
+                    haveGetConfig = true;
+                }
                 GameData.instance.SetOpenedPVECampaignLevels(response.canCampaignChallengeLevel);
                 GameData.instance.SetCampaignChapterTimesInfo(response.campaignChallenge);
                 if (response.passInfo != null)

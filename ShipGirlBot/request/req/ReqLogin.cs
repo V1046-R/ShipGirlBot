@@ -1,5 +1,6 @@
 ﻿using JsonFx.Json;
 using System;
+using System.Collections.Generic;
 
 public class ReqLogin : BaseWWWRequest
 {
@@ -18,8 +19,10 @@ public class ReqLogin : BaseWWWRequest
 
     public void LoginUseId(string userId)
     {
+        Dictionary<string, string> data = new Dictionary<string, string>();
+        data["deviceId"] = tools.configmng.deviceUniqueIdentifier;
         base.path = "index/login/" + userId;
-        base.SetupParams(null, new BaseWWWRequest.OnSuccess(this.onSuccess), new BaseWWWRequest.OnFail(this.onFail), true, ServerType.ChoosedServer, false);
+        base.SetupParams(data, new BaseWWWRequest.OnSuccess(this.onSuccess), new BaseWWWRequest.OnFail(this.onFail), true, ServerType.ChoosedServer, false);
     }
 
     private void onFail(BaseWWWRequest obj)

@@ -86,26 +86,30 @@ public partial class BattleForm : Form
             i++;
         }
 
-        foreach (PVEEventLevel level in PVEConfigs.instance.EventLevels)
+        if (PVEConfigs.instance.EventLevels != null)
         {
-            object[] vals = new object[9];
+            foreach (PVEEventLevel level in PVEConfigs.instance.EventLevels)
+            {
+                object[] vals = new object[9];
 
 
-            vals[0] = level.id;
-            vals[1] = level.title;
-            vals[2] = tools.helper.getPVEEVENTAwardString(level);
-            vals[3] = level.subTitle;
-            vals[4] = "res/png/map_route/" + level.mapId + ".png";
-            vals[5] = false;
-            vals[6] = "出战";
-            vals[7] = level.id;
+                vals[0] = level.id;
+                vals[1] = level.title;
+                vals[2] = tools.helper.getPVEEVENTAwardString(level);
+                vals[3] = level.subTitle;
+                vals[4] = "res/png/map_route/" + level.mapId + ".png";
+                vals[5] = false;
+                vals[6] = "出战";
+                vals[7] = level.id;
 
-            GridRow gr = new GridRow(vals);
-            gr.RowHeight = 150;
+                GridRow gr = new GridRow(vals);
+                gr.RowHeight = 150;
 
-            panel.Rows.Add(gr);
-            i++;
+                panel.Rows.Add(gr);
+                i++;
+            }
         }
+        
 
 
     }

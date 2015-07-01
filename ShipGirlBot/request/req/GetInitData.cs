@@ -55,6 +55,11 @@ public class GetInitData : BaseWWWRequest
                 instance.MarketingDatas = this.initData.marketingData;
                 instance.SetLastUpdateQuestTime();
                 instance.NewMailNum = this.initData.newMailNum;
+                if (this.initData.currentPveVo != null)
+                {
+                    instance.SetCurrentNodeStatus(this.initData.currentPveVo);
+                }
+
                 ServerRequestManager.instance.OnGetInitDataSuccess();
                 z.log("[登陆成功] 获取基本信息成功");
             }
@@ -71,7 +76,7 @@ public class GetInitData : BaseWWWRequest
         string deviceUniqueIdentifier = configmng.deviceUniqueIdentifier;
         if (string.IsNullOrEmpty(base.path))
         {
-            base.path = "api/initData/" + deviceUniqueIdentifier + "/";
+            base.path = "api/initGame/" + deviceUniqueIdentifier + "/";
         }
         base.SetupParams(null, new BaseWWWRequest.OnSuccess(this.onSuccess), new BaseWWWRequest.OnFail(this.onFail), true, ServerType.ChoosedServer, this.needZip);
     }

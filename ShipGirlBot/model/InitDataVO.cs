@@ -2,6 +2,7 @@
 
 public class InitDataVO : BasicResponse
 {
+    public CurrentPVEProgress currentPveVo;
     public DockInfo[] dockVo;
     public BuildEquipDockInfo[] equipmentDockVo;
     public UserEquipment[] equipmentVo;

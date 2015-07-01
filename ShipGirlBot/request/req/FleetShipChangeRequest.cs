@@ -1,6 +1,7 @@
 ﻿using JsonFx.Json;
 using System;
 using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 
 public class FleetShipChangeRequest : BaseWWWRequest
 {
@@ -168,6 +169,14 @@ public class FleetShipChangeRequest : BaseWWWRequest
                         }
                     }
                 }
+
+                if ((this.updateData.shipVO != null) && (this.updateData.shipVO.Length > 0))
+                {
+                    foreach (UserShip ship in this.updateData.shipVO)
+                    {
+                        instance.UpdateUserShip(ship);
+                    }
+                }
                 this.OnUpdateFleetSuccess(EventArgs.Empty);
                 ServerRequestManager.instance.refreashUIData();
             }
@@ -238,6 +247,32 @@ public class FleetShipChangeRequest : BaseWWWRequest
             this.WeddingSuccess(this, e);
         }
         ServerRequestManager.instance.refreashUIData();
+    }
+
+
+    public void RepalceShips(int fleetId, List<UserShip> ships)
+    {
+        string str = "[";
+        for (int i = 0; i < ships.Count; i++)
+        {
+            UserShip ship = ships[i];
+            if (ship != null)
+            {
+                str = str + ship.id + string.Empty;
+            }
+            else
+            {
+                str = str + "0";
+            }
+            if (i != (ships.Count - 1))
+            {
+                str = str + ",";
+            }
+        }
+        str = str + "]";
+        object[] objArray1 = new object[] { "boat/instantFleet/", fleetId, "/", str };
+        base.path = string.Concat(objArray1);
+        base.SetupParams(null, new BaseWWWRequest.OnSuccess(this.onSuccess), new BaseWWWRequest.OnFail(this.onFail), true, ServerType.ChoosedServer);
     }
 
     private void Start()

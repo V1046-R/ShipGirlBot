@@ -69,6 +69,7 @@ public class GameData : MonoBehaviour
     private Dictionary<int, bool> passedNodeIds;
     private List<UserPVEEventLevel> passedPVEEventLevels;
     private Dictionary<int, UserPVEEventLevel> passedPVEEventLevelsDic;
+    public static string pushToken;
     private Dictionary<int, UserShip> shipsDic;
     private Dictionary<int, ShopItemCanBuyStatus> shopItemCanBuyStatus;
 
@@ -502,7 +503,11 @@ public class GameData : MonoBehaviour
 
     public void SetCurrentNodeStatus(CurrentPVEProgress obj)
     {
-        this._currentPVEProgress = obj;
+        //this._currentPVEProgress = obj;
+        if (obj != null)
+        {
+            this._currentPVEProgress = obj;
+        }
     }
 
     private void SetLastGetBuildLogTime()
@@ -879,6 +884,13 @@ public void SetShipHasUnlocked(int cardId)
         }
     }
 
+    public bool HavePassedPVE5
+    {
+        get
+        {
+            return ((this.CurrentPVE != null) && (this.CurrentPVE.pveId >= 5));
+        }
+    }
     public static GameData instance
     {
         get

@@ -9,9 +9,11 @@ public class ShipConfig
     public int antisub;
     public int antisubMax;
     public int atk;
+    public string atkDialogue;
     public int atkMax;
     public string author;
     public int borderId;
+    public string breakDialogue;
     public int canEvo;
     public int capacity;
     public int[] capacitySlot;
@@ -31,12 +33,14 @@ public class ShipConfig
     public int evoNeedItemCid;
     public Dictionary<string, int> evoNeedResource;
     public int evoToCid;
+    public string formationDialogue;
     public string getDialogue;
     public string hitRepair;
     public int hp;
     public int hpMax;
     public int luck;
     public int luckMax;
+    public string[] mainDialogue;
     public int maxAmmo;
     public int maxLevel;
     public int maxOil;
@@ -53,6 +57,7 @@ public class ShipConfig
     public float repairTime;
     public int shipIndex;
     public int[] showAttribute;
+    public string sinkDialogue;
     public float speed;
     public int star;
     public int strengthenLevelUpExp;

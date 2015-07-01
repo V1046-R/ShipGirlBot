@@ -16,7 +16,8 @@ public class DataServer : MonoBehaviour
     private static DataServer mInstance;
     public bool removeSessionForTest;
     //public static string secretKey = "FHQTuRFQMQgqdJLydl0m"; // android ios 126 key
-    public static string secretKey = "Mb7x98rShwWRoCXQRHQb";   // android 129 key
+    //public static string secretKey = "Mb7x98rShwWRoCXQRHQb";   // android 129 key
+    public static string secretKey = "jx4Ztm79SW1zrQHQJShY";    //android 137 key
     public string[] servers = new string[] { "http://hmtest.jianniang.com/", "http://login.version.p7game.com/" };
     public int sessionExpireTime = 900;
     public PublicServers usingPublicServer = PublicServers.p7game;

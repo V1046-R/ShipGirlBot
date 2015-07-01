@@ -25,18 +25,6 @@ static class Program
 
         var zzz = new z();
         bool createdNew;
-#if DEBUG || RELEASE_TEST
-
-#else
-
-        Mutex instance = new Mutex(true, zzz.GetType().ToString(), out createdNew);
-
-        if (!createdNew)
-        {
-            MessageBox.Show("不能多开");
-            return;
-        }
-#endif
         try
             {
 

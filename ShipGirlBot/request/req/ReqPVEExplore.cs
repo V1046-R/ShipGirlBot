@@ -1,5 +1,6 @@
 ﻿using JsonFx.Json;
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 ////using UnityEngine;
@@ -209,9 +210,11 @@ public class ReqPVEExplore : BaseWWWRequest
 
     public void StartExplore(int fleetId, int exploreId)
     {
+        Dictionary<string, string> data = new Dictionary<string, string>();
+        data["deviceId"] = tools.configmng.deviceUniqueIdentifier;
         object[] objArray1 = new object[] { "explore/start/", fleetId, "/", exploreId };
         base.path = string.Concat(objArray1);
-        base.SetupParams(null, new BaseWWWRequest.OnSuccess(this.reqStartSuccess), new BaseWWWRequest.OnFail(this.resStartFail), true, ServerType.ChoosedServer, false);
+        base.SetupParams(data, new BaseWWWRequest.OnSuccess(this.reqStartSuccess), new BaseWWWRequest.OnFail(this.resStartFail), true, ServerType.ChoosedServer, false);
     }
 }
 

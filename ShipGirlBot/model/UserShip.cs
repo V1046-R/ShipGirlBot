@@ -5,6 +5,7 @@ public class UserShip
 {
     private ShipConfig _ship;
     public ShipBattleProps battleProps;
+    public ShipBattleProps battlePropsBasic;
     public ShipBattleProps battlePropsMax;
     public int[] capacitySlot;
     public int[] capacitySlotExist;

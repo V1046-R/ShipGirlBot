@@ -1,5 +1,6 @@
 ﻿using JsonFx.Json;
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 public class GetPVEData : BaseWWWRequest
@@ -625,9 +626,13 @@ public class GetPVEData : BaseWWWRequest
         UserFleet uf = GameData.instance.GetFleetOfId(fleetId);
         PVELevel pl = PVEConfigs.instance.GetLevel(levelId);
         z.log("[开始PVE战斗]...."+ uf.title + " ===> "+ pl.title + " " + pl.subTitle);
+
+        Dictionary<string, string> data = new Dictionary<string, string>();
+        data["deviceId"] = tools.configmng.deviceUniqueIdentifier;
+
         object[] objArray1 = new object[] { "pve/challenge129/", levelId, "/", fleetId, "/", (int) formationType };
         base.path = string.Concat(objArray1);
-        base.SetupParams(null, new BaseWWWRequest.OnSuccess(this.onReqStartLevelSuccess), new BaseWWWRequest.OnFail(this.onReqStartLevelFail), true, ServerType.ChoosedServer, false);
+        base.SetupParams(data, new BaseWWWRequest.OnSuccess(this.onReqStartLevelSuccess), new BaseWWWRequest.OnFail(this.onReqStartLevelFail), true, ServerType.ChoosedServer, false);
     }
 
     public void SearchNode(int nodeId)

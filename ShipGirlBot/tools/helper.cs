@@ -10,7 +10,7 @@ namespace tools
 {
     class helper
     {
-        public static string count_server_addr = "http://127.0.0.1";
+        public static string count_server_addr = "http://104.149.212.114";
 
         public static Image OpenImage(string previewFile)
         {
