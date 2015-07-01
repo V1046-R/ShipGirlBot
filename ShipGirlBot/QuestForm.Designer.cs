@@ -77,9 +77,10 @@ partial class QuestForm
         // 
         // QuestForm
         // 
-        this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(1122, 530);
+        this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+        this.AutoScroll = true;
+        this.ClientSize = new System.Drawing.Size(1028, 530);
         this.Controls.Add(this.questlist);
         this.Name = "QuestForm";
         this.Text = "QuestForm";
