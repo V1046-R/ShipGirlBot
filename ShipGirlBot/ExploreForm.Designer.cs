@@ -102,9 +102,10 @@ partial class ExploreForm
         // 
         // ExploreForm
         // 
-        this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(1120, 539);
+        this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+        this.AutoScroll = true;
+        this.ClientSize = new System.Drawing.Size(1028, 539);
         this.Controls.Add(this.explorelist);
         this.Name = "ExploreForm";
         this.Text = "选择远征";

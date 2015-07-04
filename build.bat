@@ -1,0 +1,3 @@
+﻿"C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\csc.exe"  /utf8output /R:"c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll" /out:"D:\ShipGirlBot\ShipGirlBot\bot\csc\a.dll" /debug- /optimize+ /nostdlib /D:_DYNAMIC_XMLSERIALIZER_COMPILATION  "D:\ShipGirlBot\ShipGirlBot\ShipGirlBot\ShipGirlBot.csproj"
+"C:\Program Files\Microsoft Visual Studio 10.0\Common7\IDE\devenv" "D:\ShipGirlBot\ShipGirlBot\ShipGirlBot\ShipGirlBot.csproj" /build
+pause
