@@ -748,6 +748,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.AutoSize = true;
             this.groupBox4.Controls.Add(this.autodevnum);
             this.groupBox4.Controls.Add(this.autobuildcheck);
             this.groupBox4.Controls.Add(this.label17);
@@ -811,7 +812,7 @@
             this.groupBox4.Controls.Add(this.formationcombo);
             this.groupBox4.Location = new System.Drawing.Point(615, 28);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(544, 281);
+            this.groupBox4.Size = new System.Drawing.Size(549, 301);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "远征/战斗控制";
@@ -1805,6 +1806,8 @@
             // 
             // expandablePanel4
             // 
+            this.expandablePanel4.AutoScroll = true;
+            this.expandablePanel4.AutoSize = true;
             this.expandablePanel4.CanvasColor = System.Drawing.SystemColors.Control;
             this.expandablePanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.expandablePanel4.Controls.Add(this.button7);
@@ -1850,7 +1853,7 @@
             this.logger.Multiline = true;
             this.logger.Name = "logger";
             this.logger.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logger.Size = new System.Drawing.Size(1028, 5);
+            this.logger.Size = new System.Drawing.Size(1141, 38);
             this.logger.TabIndex = 1;
             this.logger.Text = "少女自动诱导器初始化完毕....";
             // 
@@ -1894,9 +1897,11 @@
             this.expandablePanel1.ResumeLayout(false);
             this.expandablePanel2.ResumeLayout(false);
             this.expandablePanel3.ResumeLayout(false);
+            this.expandablePanel3.PerformLayout();
             this.expandablePanel4.ResumeLayout(false);
             this.expandablePanel4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
